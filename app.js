@@ -146,7 +146,7 @@ function changeColorOne(e) {
 }
 
 
-
+//code for tic tac toe
 
 var isX = false;
 var x = 'x';
@@ -175,7 +175,11 @@ $(document).ready(function() {
         result = checkResult(rowid, colid, x);
       }
       isX = !isX;
-      result ? alert("game over") : "";
+    }
+
+    if (result) {
+      alert("Game Over");
+      gameOver();
     }
 
     //insert x or o into the div, add classes and update array
@@ -222,5 +226,11 @@ function checkResult(rowid, colid, val) {
 
 
 function gameOver() {
+
+  $.each($('.tile'), function() {
+    $(this).html("");
+    $(this).removeClass('x');
+    $(this).removeClass('o');
+  });
 
 }
