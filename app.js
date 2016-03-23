@@ -148,7 +148,7 @@ function changeColorOne(e) {
 
 //code for tic tac toe
 
-var isX = false;
+var isX = true;
 var x = 'x';
 var o = 'o';
 var rows = new Array(3).fill(0).map(row => new Array(3).fill(0));
@@ -221,6 +221,10 @@ function checkResult(rowid, colid, val) {
     }
   }
 
+  if (rows.join("").split(",").join("").indexOf(0) == -1) {
+    return true;
+  }
+
   return false;
 }
 
@@ -232,5 +236,9 @@ function gameOver() {
     $(this).removeClass('x');
     $(this).removeClass('o');
   });
+
+  rows = new Array(3).fill(0).map(row => new Array(3).fill(0));
+  cols = new Array(3).fill(0).map(row => new Array(3).fill(0));
+  isX = true;
 
 }
